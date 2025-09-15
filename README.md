@@ -15,7 +15,7 @@
 
 1. Clone repository
    ```bash
-   git clone https://github.com/username/nama-project.git
+   git clone https://github.com/harithya/Online-Store-Tripay.git
    cd nama-project
 
 2. Lakukan perintah berikut
