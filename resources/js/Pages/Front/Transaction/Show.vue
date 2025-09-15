@@ -1,6 +1,6 @@
 <template>
     <FrontLayout title="Detail Transaksi">
-        <div class="flex justify-center mt-20 wrapper">
+        <div class="wrapper mt-20 flex justify-center">
             <div class="w-xl">
                 <table class="table">
                     <thead class="bg-gray-50">
@@ -18,7 +18,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="bg-gray-50 mt-5 p-5 rounded-lg">
+                <div class="mt-5 rounded-lg bg-gray-50 p-5">
                     <div class="flex justify-between py-3">
                         <label class="font-semibold">Kode Invoice</label>
                         <label class="font-semibold">{{ invoice.raw_response.merchant_ref }}</label>
@@ -32,7 +32,7 @@
                         <label class="font-semibold">{{ invoice.invoice_details.length }} Item</label>
                     </div>
                     <div class="mt-5" v-if="invoice.raw_response.status == 'UNPAID'">
-                        <a :href="invoice.raw_response.checkout_url" class="w-full btn btn-neutral">Bayar Sekarang</a>
+                        <a :href="invoice.raw_response.checkout_url" class="btn w-full btn-neutral">Bayar Sekarang</a>
                     </div>
                     <div class="flex justify-between py-3" v-else>
                         <label class="font-semibold">Status</label>

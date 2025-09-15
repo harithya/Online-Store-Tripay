@@ -1,8 +1,8 @@
 <template>
     <FrontLayout title="Home">
-        <div class="space-y-8 mt-8 wrapper">
+        <div class="wrapper mt-8 space-y-8">
             <Searchbar v-model="filter.search" />
-            <div class="flex lg:flex-row flex-col-reverse gap-10">
+            <div class="flex flex-col-reverse gap-10 lg:flex-row">
                 <div class="w-full lg:w-3/12">
                     <CategoryList :data="categories" v-model="filter.categories" />
                 </div>

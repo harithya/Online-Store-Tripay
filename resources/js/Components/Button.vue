@@ -11,5 +11,5 @@
 import { useAttrs } from 'vue';
 
 const attr = useAttrs();
-defineProps(['isLoading'])
+defineProps(['isLoading']);
 </script>

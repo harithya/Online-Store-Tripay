@@ -1,7 +1,7 @@
 <template>
     <FrontLayout title="Keranjang">
-        <div class="mt-20 wrapper">
-            <div class="flex lg:flex-row flex-col gap-10">
+        <div class="wrapper mt-20">
+            <div class="flex flex-col gap-10 lg:flex-row">
                 <div class="w-full lg:w-8/12">
                     <div class="overflow-x-auto">
                         <table class="table">
@@ -22,8 +22,8 @@
                                     </td>
                                     <td class="text-center">Rp {{ cart.price.toLocaleString('id-ID') }}</td>
                                     <td class="text-center">
-                                        <button class="text-white btn btn-error" @click="handleDelete(cart.id)">
-                                            <Trash2Icon class="w-5 h-5" />
+                                        <button class="btn text-white btn-error" @click="handleDelete(cart.id)">
+                                            <Trash2Icon class="h-5 w-5" />
                                         </button>
                                     </td>
                                 </tr>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-4/12">
-                    <div class="bg-gray-50 p-5 rounded-lg">
+                    <div class="rounded-lg bg-gray-50 p-5">
                         <div class="flex justify-between py-3">
                             <label class="font-semibold">Total Bayar</label>
                             <label class="font-semibold">{{ totalPrice.toLocaleString('id-ID') }}</label>
@@ -53,17 +53,19 @@
                             </FormGroup>
                         </div>
 
-                        <Button class="mt-5 w-full btn btn-neutral" :is-loading="form.processing"
+                        <Button
+                            class="btn mt-5 w-full btn-neutral"
+                            :is-loading="form.processing"
                             :disabled="carts.length === 0 || !$page.props.auth"
-                            @click="form.post(route('checkout.store'))">
+                            @click="form.post(route('checkout.store'))"
+                        >
                             Checkout
                         </Button>
                     </div>
-                    <div v-if="!$page.props.auth" class="mt-5 text-gray-800 alert alert-warning">
+                    <div v-if="!$page.props.auth" class="mt-5 alert alert-warning text-gray-800">
                         Silahkan login terlebih dahulu untuk melakukan checkout
                         <Link :href="route('auth.login.index')" class="underline">Login Sekarang</Link>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -85,14 +87,14 @@ const props = defineProps(['carts', 'payments']);
 
 const totalPrice = computed(() => {
     return props.carts.reduce((total, cart) => total + cart.price, 0);
-})
+});
 
 const form = useForm({
-    payment_channel: ''
-})
+    payment_channel: '',
+});
 
 const swall = useSwall();
 const handleDelete = (id) => {
     swall.confirmDelete(() => router.delete(route('cart.destroy', id)));
-}
+};
 </script>

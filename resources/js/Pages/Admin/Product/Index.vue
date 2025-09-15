@@ -20,7 +20,7 @@
                     <td>{{ product.sku }}</td>
                     <td>
                         <div class="flex gap-5">
-                            <img :src="product.image" alt="" class="w-10 h-10 object-cover" />
+                            <img :src="product.image" alt="" class="h-10 w-10 object-cover" />
                             <label>{{ product.name }}</label>
                         </div>
                     </td>
@@ -29,7 +29,7 @@
                     <td>
                         <div class="flex gap-5">
                             <Link :href="route('admin.product.edit', product.id)" class="underline">Edit</Link>
-                            <button @click="handleDelete(product.id)" class="underline cursor-pointer">Hapus</button>
+                            <button @click="handleDelete(product.id)" class="cursor-pointer underline">Hapus</button>
                         </div>
                     </td>
                 </tr>
@@ -50,5 +50,5 @@ defineProps(['products']);
 const swall = useSwall();
 const handleDelete = (id) => {
     swall.confirmDelete(() => router.delete(route('admin.product.destroy', id)));
-}
+};
 </script>

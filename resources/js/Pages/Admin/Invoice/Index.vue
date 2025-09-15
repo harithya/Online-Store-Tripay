@@ -8,7 +8,7 @@
                     <th>Status</th>
                     <th>Tanggal</th>
                     <th>Email</th>
-                    <th>No Hp </th>
+                    <th>No Hp</th>
                     <th>Harga</th>
                 </tr>
             </thead>
@@ -16,9 +16,8 @@
                 <tr v-for="(invoice, index) in invoices">
                     <td>{{ index + 1 }}</td>
                     <td>
-                        <Link :href="route('admin.invoice.show', invoice.tripay_reference)"
-                            class="border-b font-semibold text-primary italic">
-                        {{ invoice.raw_response.merchant_ref }}
+                        <Link :href="route('admin.invoice.show', invoice.tripay_reference)" class="border-b font-semibold text-primary italic">
+                            {{ invoice.raw_response.merchant_ref }}
                         </Link>
                     </td>
                     <td>
@@ -35,9 +34,7 @@
                     <td>
                         {{ invoice.buyer_phone }}
                     </td>
-                    <td>
-                        Rp {{ invoice.amount.toLocaleString('id-ID') }}
-                    </td>
+                    <td>Rp {{ invoice.amount.toLocaleString('id-ID') }}</td>
                 </tr>
             </tbody>
         </DataView>
@@ -54,13 +51,13 @@ defineProps(['invoices']);
 
 const getStatusBadge = (status) => {
     const mapping = {
-        UNPAID: { label: "Belum Dibayar", class: "badge badge-warning" },
-        PAID: { label: "Lunas", class: "badge badge-success" },
-        FAILED: { label: "Gagal", class: "badge badge-error" },
-        EXPIRED: { label: "Kedaluwarsa", class: "badge badge-neutral" },
-        REFUND: { label: "Refund", class: "badge badge-info" },
+        UNPAID: { label: 'Belum Dibayar', class: 'badge badge-warning' },
+        PAID: { label: 'Lunas', class: 'badge badge-success' },
+        FAILED: { label: 'Gagal', class: 'badge badge-error' },
+        EXPIRED: { label: 'Kedaluwarsa', class: 'badge badge-neutral' },
+        REFUND: { label: 'Refund', class: 'badge badge-info' },
     };
 
-    return mapping[status] || { label: "Tidak Diketahui", class: "badge" };
+    return mapping[status] || { label: 'Tidak Diketahui', class: 'badge' };
 };
 </script>

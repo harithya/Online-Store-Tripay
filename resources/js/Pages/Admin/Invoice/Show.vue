@@ -1,6 +1,6 @@
 <template>
     <AdminLayout title="Detail Invoice">
-        <div class="flex justify-center mt-20 wrapper">
+        <div class="wrapper mt-20 flex justify-center">
             <div class="w-xl">
                 <table class="table">
                     <thead class="bg-gray-50">
@@ -18,7 +18,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="bg-gray-50 mt-5 p-5 rounded-lg">
+                <div class="mt-5 rounded-lg bg-gray-50 p-5">
                     <div class="flex justify-between py-3">
                         <label class="font-semibold">Kode Invoice</label>
                         <label class="font-semibold">{{ invoice.raw_response.merchant_ref }}</label>

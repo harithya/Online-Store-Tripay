@@ -1,20 +1,25 @@
 <template>
     <button
-        class="flex justify-between items-center bg-white p-3 border border-green-100 rounded-lg w-full cursor-pointer custom-input"
-        @click="isOpen = true">
+        class="custom-input flex w-full cursor-pointer items-center justify-between rounded-lg border border-green-100 bg-white p-3"
+        @click="isOpen = true"
+    >
         <label class="text-gray-500" v-if="!model">Pilih Metode</label>
         <label class="text-gray-800" v-else>{{ model }}</label>
-        <ChevronDown class="w-5 h-5" />
+        <ChevronDown class="h-5 w-5" />
     </button>
 
     <Modal v-model="isOpen" title="Metode Pembayaran">
         <div v-for="(payment, key) in payments">
-            <h4 class="mb-5 font-medium text-lg">{{ key }}</h4>
-            <div class="gap-5 grid grid-cols-2 lg:grid-cols-4">
-                <button v-for="value in payment" @click="handleSelect(value.code)" :key="value.code"
-                    class="flex flex-col justify-center items-center shadow-sm p-5 border border-gray-200 text-center hover:scale-105 transition-all cursor-pointer card card-body">
+            <h4 class="mb-5 text-lg font-medium">{{ key }}</h4>
+            <div class="grid grid-cols-2 gap-5 lg:grid-cols-4">
+                <button
+                    v-for="value in payment"
+                    @click="handleSelect(value.code)"
+                    :key="value.code"
+                    class="card card-body flex cursor-pointer flex-col items-center justify-center border border-gray-200 p-5 text-center shadow-sm transition-all hover:scale-105"
+                >
                     <img :src="value.icon_url" alt="" class="w-10 object-contain" />
-                    <span class="mt-5 text-gray-600 text-sm">
+                    <span class="mt-5 text-sm text-gray-600">
                         {{ value.name }}
                     </span>
                 </button>
@@ -46,5 +51,5 @@ const payments = computed(() => {
 const handleSelect = (value) => {
     model.value = value;
     isOpen.value = false;
-}
+};
 </script>

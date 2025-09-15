@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-between items-center gap-5 mb-5">
+    <div class="mb-5 flex items-center justify-between gap-5">
         <Searchbar v-model="filter.search" />
         <slot name="action" />
     </div>
@@ -18,9 +18,8 @@ import useFilter from '../Composable/useFilter';
 import EmptyState from './EmptyState.vue';
 import Searchbar from './Searchbar.vue';
 
-defineProps(['data'])
+defineProps(['data']);
 const filter = useFilter({
-    search: ''
-})
-
+    search: '',
+});
 </script>
