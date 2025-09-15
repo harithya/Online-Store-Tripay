@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@import 'tailwindcss';
+@plugin "daisyui";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+@layer utilities {
+    .wrapper {
+        @apply mx-auto max-w-7xl px-4;
+    }
+
+    .btn {
+        box-shadow: none;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .has-error .input {
+        @apply border-red-500;
+    }
+
+    .has-error .custom-input {
+        @apply border-red-500;
+    }
+
+    .has-error .file-input {
+        @apply border-red-500;
+    }
+
+    .has-error .textarea {
+        @apply border-red-500;
+    }
+
+    .has-error .select {
+        @apply border-red-500;
+    }
+}
